@@ -52,7 +52,15 @@ if (class_exists('Easy_Digital_Downloads')) {
                     $per_page = absint(get_theme_mod('ideabox_store_front_featured_count'));
                     $product_args = array(
                         'post_type' => 'download',
-                        'posts_per_page' => $per_page
+                        'posts_per_page' => $per_page,
+                        'tax_query' => array (
+        					array ( 
+					            'taxonomy' => 'download_category',
+					            'field' => 'slug',
+					            'terms' => 'wporg',
+					            'operator' => 'NOT IN'
+						        )
+    						)
                     );
                     $products = new WP_Query($product_args);
                     ?>
