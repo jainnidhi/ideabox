@@ -41,8 +41,8 @@ function ideabox_setup() {
 		*/
 		add_theme_support( 'post-thumbnails' );
                 
-                add_image_size('post_portfolio_thumb', 400, 400, true);
-                
+                add_image_size('product-image-large', 990, 440, true);
+                                             
                 add_image_size('post_feature_main_thumb', 790, 392, true);
                 
                 add_image_size('post_feature_other_thumb', 380, 200, true);
@@ -170,8 +170,6 @@ function ideabox_scripts() {
 	wp_enqueue_script( 'ideabox-skip-link-focus-fix', get_template_directory_uri() . '/includes/js/skip-link-focus-fix.js', array(), '20130115', true );
         wp_enqueue_script('ideabox-custom-scripts', get_template_directory_uri() . '/includes/js/custom-scripts.js', array(), '1.0', 'all', false);
         if(is_front_page()) {
-        wp_enqueue_style( 'flexslider', trailingslashit( get_template_directory_uri() ) . 'includes/css/flexslider.css' , array(), '1.0', 'all' );
-        wp_enqueue_script('ideabox-slider', get_template_directory_uri() . '/includes/js/jquery.flexslider-min.js', array('jquery'));
        
         wp_enqueue_script('ideabox-scroll-reveal', get_template_directory_uri() . '/includes/js/scrollReveal.min.js', array('jquery'));
          
@@ -356,19 +354,3 @@ function ideabox_scroll_reveal_js() {
 <?php }
 }
 add_action('wp_footer','ideabox_scroll_reveal_js');
-
-function ideabox_flex_slider_js() {
-    if(is_front_page()) { ?>
-    <script type="text/javascript">
-       jQuery('#main-slider').flexslider( { 
-        prevText: "<i class='fa fa-angle-left'></i>",
-	nextText: "<i class='fa fa-angle-right'></i>",
-        start: function(slider) {
-                        slider.removeClass('loading');
-                }
-    });
-    </script>
-<?php }
-}
-
-add_action('wp_footer','ideabox_flex_slider_js');

@@ -1,4 +1,32 @@
 <?php get_header(); ?>
+<div class="product-summary">
+    <div class="container">
+        <div class="row">
+            <h2 class="title"><?php the_title(); ?></h2>
+                <div class="summary"><?php the_excerpt(); ?></div>
+
+                <?php if (function_exists('edd_price')) { ?>
+                     <div class="product-buttons clearfix">
+                 <?php if (!edd_has_variable_prices(get_the_ID())) { ?>
+                         <?php echo edd_get_purchase_link(get_the_ID(), __('Add to Cart','ideabox'), 'button'); ?>
+                     <?php } ?>
+
+                     <a class="demo-button" href="<?php 
+                         $ideabox_demo_button = get_post_meta( get_the_ID(), '_download_demo_link', true );
+                         // check if the custom field has a value
+                         if( ! empty( $ideabox_demo_button ) ) {
+                           echo $ideabox_demo_button;
+                         } 
+                         ?>"> View Demo
+                     </a>
+                 </div><!--end .product-buttons-->
+             <?php } ?>   
+                 <div class="product-image">
+                     <?php the_post_thumbnail('product-image-large'); ?>
+                 </div>
+        </div>
+    </div>
+</div>
 
 <div class="main-content">
 	<div class="container">
@@ -7,27 +35,7 @@
         <?php if (have_posts()) : ?>
 
             <?php while (have_posts()) : the_post(); ?>
-                      <h2 class="title"><?php the_title(); ?></h2>
-                      <div class="summary"><?php the_excerpt(); ?></div>
                       
-                       <?php if (function_exists('edd_price')) { ?>
-                            <div class="product-buttons clearfix">
-                        <?php if (!edd_has_variable_prices(get_the_ID())) { ?>
-                                <?php echo edd_get_purchase_link(get_the_ID(), __('Add to Cart','ideabox'), 'button'); ?>
-                            <?php } ?>
-                           
-                            <a class="demo-button" href="<?php 
-                                $ideabox_demo_button = get_post_meta( get_the_ID(), '_download_demo_link', true );
-                                // check if the custom field has a value
-                                if( ! empty( $ideabox_demo_button ) ) {
-                                  echo $ideabox_demo_button;
-                                } 
-                                ?>"> View Demo
-                            </a>
-                        </div><!--end .product-buttons-->
-                    <?php } ?>
-                        
-                        <?php the_post_thumbnail('product-image-large'); ?>
                         
                 <?php if (is_active_sidebar('sidebar_shop')) { ?>
                     <div class="col-lg-8 main-content-inner">

@@ -29,4 +29,7 @@ jQuery(document).ready(function() {
         jQuery('.featured-products').mixItUp();
     });
     
+    jQuery(function() {
+        jQuery('.store-products').mixItUp();
+    });
 });

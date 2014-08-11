@@ -18,6 +18,25 @@ get_header(); ?>
 		<div class="row">
 			<div id="content" class="main-content-inner store-template col-lg-12">
                             <h2 class="store-title"><?php the_title(); ?></h2>
+                            
+                <ul id="filters">
+                    <?php
+                        $terms = get_terms('download_category');
+                        $count = count($terms);
+                            echo '<li><a href="javascript:void(0)" data-filter="all" class="filter active">All</a></li>';
+                        if ( $count > 0 ){
+
+                            foreach ( $terms as $term ) {
+
+                                $termname = strtolower($term->name);
+                                $termname = str_replace(' ', '-', $termname);
+                                $slug = $term->slug;
+                                echo '<li><a href="javascript:void(0)" class="filter" data-filter=".'.$slug.'">'.$term->name.'</a></li>';
+                            }
+                        }
+                    ?>
+                </ul>
+        <div class="store-products">
         <?php
         $current_page = get_query_var('paged');
         $per_page = intval(get_theme_mod('ideabox_store_front_count'));
@@ -31,8 +50,26 @@ get_header(); ?>
         ?>
         <?php if ($products->have_posts()) : $i = 1; ?>
             <?php while ($products->have_posts()) : $products->the_post(); ?>
+                        
+             <?php 
+                    $terms = get_the_terms( $post->ID, 'download_category' );	
+                    if ( $terms && ! is_wp_error( $terms ) ) : 
 
-                <div id="post-<?php the_ID(); ?>" class="col-lg-4 product<?php if ($i % 4 == 0) { echo ' last'; } ?>">
+                        $links = array();
+
+                        foreach ( $terms as $term ) {
+                            $links[] = $term->slug;
+                        }
+
+                        $tax_links = join( " ", str_replace(' ', '-', $links));          
+                        $tax = strtolower($tax_links);
+                    else :	
+                        $tax = '';					
+                    endif; 
+                     $containerClass = $tax; 
+                     ?>
+           
+                <div id="post-<?php the_ID(); ?>" class="col-lg-4 product mix all<?php if ($i % 4 == 0) { echo ' last'; } ?> <?php echo $containerClass; ?>">
 
 
                     
@@ -68,7 +105,7 @@ get_header(); ?>
                     <?php $i+=1; ?>
                 <?php endwhile; ?>
 
-            <div class="pagination">
+            <div class="pagination col-lg-12">
                 <?php
                 $big = 999999999; // need an unlikely intege					
                 echo paginate_links(array(
@@ -85,6 +122,7 @@ get_header(); ?>
                 <?php get_search_form(); ?>
 
 <?php endif; ?>
+            </div>
     </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
 		</div><!-- close .row -->
 	</div><!-- close .container -->

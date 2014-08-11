@@ -386,7 +386,8 @@ object {
     text-align:center;
 }
 
-.front-featured-products #filters{
+.front-featured-products #filters,
+.store-template #filters{
     padding:0 0 50px;
     text-align:center;
     margin: 50px auto 0;
@@ -395,12 +396,14 @@ object {
     display: block;
 }
 
-.front-featured-products #filters li{
+.front-featured-products #filters li,
+.store-template #filters li{
     display: inline-block;
     margin-right: 10px;
 }
 
-.front-featured-products li a{
+.front-featured-products li a,
+.store-template #filters li a{
     border: 1px solid #ddd;
     padding: 10px 20px;
     font-size: 12px;
@@ -415,7 +418,8 @@ object {
     text-align:center;
     margin-bottom:20px;
 }
-.featured-products .product.mix{
+.featured-products .product.mix,
+.store-products .product.mix{
     display: none; 
 }
 
@@ -495,6 +499,7 @@ object {
 .store-title{
     text-align:center;
     margin-bottom:30px;
+    margin-top:0;
 }
 
 .edd-submit.button.blue{
@@ -566,6 +571,15 @@ object {
 }
 .single-download .edd_download_purchase_form{
     display:inline-block;
+}
+
+.single-download .product-summary{
+    background:#232222;
+    color:#fff;
+}
+
+.single-download .product-image{
+    text-align:center;
 }
 /* Pagination */
 
