@@ -41,6 +41,8 @@ function ideabox_setup() {
 		*/
 		add_theme_support( 'post-thumbnails' );
                 
+                add_image_size('product-image', 370, 370, true );
+                
                 add_image_size('product-image-large', 990, 440, true);
                                              
                 add_image_size('post_feature_main_thumb', 790, 392, true);
@@ -75,6 +77,7 @@ function ideabox_setup() {
 	*/
 	register_nav_menus( array(
 		'primary'  => __( 'Header bottom menu', 'ideabox' ),
+                'footer'  => __( 'Footer Menu', 'ideabox' ),
 	) );
 
 }

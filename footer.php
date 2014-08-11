@@ -52,17 +52,19 @@
 				
 
 			</div>
-                    <div class="contact-details">
-                        <ul><?php if ( get_theme_mod('contact_email') !='' ) {  ?><li id="email"><?php echo esc_html(get_theme_mod('contact_email')); ?></li>
-
-                          <?php } else {  ?> <li id="email"> <?php esc_html_e('hello@ideaboxcreations.com', 'ideabox') ?></li>
-                                   <?php } ?>
-
-                          <?php if ( get_theme_mod('contact_phone') !='' ) {  ?><li id="phone"><?php echo esc_html(get_theme_mod('contact_phone')); ?></li>
-
-                          <?php } else {  ?> <li id="phone"><?php esc_html_e('0294-678456', 'ideabox') ?></li>
-                                   <?php } ?>
-                          </ul>
+                    <div class="footer-navigation">
+                        <div class="footer-navigation-inner">
+                            <?php wp_nav_menu(
+				array(
+					'theme_location' => 'footer',
+					'container_class' => 'collapse navbar-collapse navbar-responsive-collapse',
+					'menu_class' => 'footer-nav navbar-nav',
+					'fallback_cb' => '',
+					'menu_id' => 'footer-menu',
+					'walker' => new wp_bootstrap_navwalker()
+				)
+			); ?>
+                        </div>
                     </div>
                    
 			<div class="site-footer-inner col-lg-12">

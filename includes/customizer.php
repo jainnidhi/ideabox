@@ -397,17 +397,7 @@ function ideabox_customize_register($wp_customize) {
             'settings' => 'ideabox_edd_view_details',
             'priority' => 30,
         ));
-        // store front/archive item count
-        $wp_customize->add_setting('ideabox_store_front_count', array(
-            'default' => 9,
-            'sanitize_callback' => 'ideabox_sanitize_integer',
-        ));
-        $wp_customize->add_control('ideabox_store_front_count', array(
-            'label' => __('Store Item Count', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_store_front_count',
-            'priority' => 35,
-        ));
+        
         
         $wp_customize->add_setting('ideabox_edd_store_link_text', array(
             'sanitize_callback' => 'sanitize_text_field',
@@ -429,6 +419,39 @@ function ideabox_customize_register($wp_customize) {
             'section' => 'ideabox_edd_front_page_options',
             'settings' => 'ideabox_edd_store_link_url',
             'priority' => 45,
+        ));
+        
+        $wp_customize->add_setting('store_page_title', array(
+            'sanitize_callback' => 'ideabox_sanitize_text'
+        ));
+        $wp_customize->add_control('store_page_title', array(
+            'label' => __('Store Title', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'store_page_title',
+            'priority' => 50,
+        ));
+        // store front/downloads archive description
+        $wp_customize->add_setting('store_page_description', array(
+            'default' => null,
+            'sanitize_callback' => 'ideabox_sanitize_text',
+        ));
+        $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'store_page_description', array(
+            'label' => __('Store Description', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'store_page_description',
+            'priority' => 55,
+        )));
+        
+        // store front/archive item count
+        $wp_customize->add_setting('ideabox_store_front_count', array(
+            'default' => 9,
+            'sanitize_callback' => 'ideabox_sanitize_integer',
+        ));
+        $wp_customize->add_control('ideabox_store_front_count', array(
+            'label' => __('Store Item Count', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_store_front_count',
+            'priority' => 60,
         ));
     }
     

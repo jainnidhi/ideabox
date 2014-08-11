@@ -17,7 +17,17 @@ get_header(); ?>
 	<div class="container">
 		<div class="row">
 			<div id="content" class="main-content-inner store-template col-lg-12">
-                            <h2 class="store-title"><?php the_title(); ?></h2>
+                            <?php if(get_theme_mod('store_page_title')) { ?>
+                            <h2 class="store-title"><?php echo get_theme_mod('store_page_title'); ?></h2>
+                            <?php } else { ?>
+                            <h2 class="store-title"><?php esc_html_e('Store', 'ideabox'); ?></h2>
+                            <?php } ?>
+                            
+                            <?php if(get_theme_mod('store_page_description')) { ?>
+                            <p class="store-description"><?php echo get_theme_mod('store_page_description'); ?></p>
+                            <?php } else { ?>
+                            <p class="store-description"><?php esc_html_e('Store Description Block.', 'ideabox'); ?></p>
+                            <?php } ?>
                             
                 <ul id="filters">
                     <?php
@@ -75,7 +85,7 @@ get_header(); ?>
                     
                     <div class="product-image">
                         <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('product-image'); ?>
+                        <?php the_post_thumbnail(); ?>
                         </a>
                            
                     </div>

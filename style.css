@@ -450,11 +450,6 @@ object {
     margin-bottom:30px;
 }
 
-.featured-products .product-image{
-    position:relative;
-    height:400px;
-}
-
 .featured-products .product-info{
     display: block;
     text-align: center;
@@ -470,27 +465,6 @@ object {
     color: #111;
 }
 
-.featured-products .product:hover .product-info{
-    height: 100%;
-    top: 0;
-    background: rgba(36, 129, 165, 0.8);
-    padding: 50px 10px;
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -khtml-transition: all 0.3s ease;
-    -moz-transitiokn: all 0.3s ease;
-    color: #fff;
-    position:absolute;
-}
-
-.featured-products .product:hover .product-image img{
-    height:400px;
-}
-
-.featured-products .product:hover .product-info a{
-    color:#fff;
-}
-
 .single-download .hentry{
     border-bottom:0px;
     margin-bottom:20px;
@@ -499,6 +473,13 @@ object {
 .store-title{
     text-align:center;
     margin-bottom:30px;
+}
+
+.store-description{
+    text-align:center;
+}
+
+.store-template .store-title{
     margin-top:0;
 }
 
@@ -1000,7 +981,6 @@ input[type="search"]{
 
 .cta-wrap{
     padding:50px 0;
-    text-align:center;
     color:#fff;
 }
 
@@ -1021,6 +1001,10 @@ input[type="search"]{
     padding: 15px 40px;
     margin-top: 20px;
     text-transform: uppercase;
+}
+
+.cta-right{
+    text-align:center;
 }
 
 /* Sidebar */
@@ -1080,6 +1064,20 @@ input[type="search"]{
 }
 .site-footer-inner{
     text-align:center;
+}
+
+.footer-navigation-inner{
+    padding:20px 0;
+}
+
+.footer-nav{
+    float:none;
+    text-align:center;
+}
+
+.footer-nav li{
+    display:inline-block;
+    float:none;
 }
 
 /* Contact Details */
@@ -1387,10 +1385,6 @@ input[type="search"]{
 .ideabox-pink .edd-submit.button.blue,
 .ideabox-pink .demo-button{
     background:#EE3178;
-}
-
-.ideabox-pink .featured-products .product:hover .product-info{
-    background:rgba(221, 66, 122, 0.8);
 }
 
 .ideabox-pink .featured-team-content{
