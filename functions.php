@@ -44,11 +44,7 @@ function ideabox_setup() {
                 add_image_size('product-image', 370, 370, true );
                 
                 add_image_size('product-image-large', 990, 440, true);
-                                             
-                add_image_size('post_feature_main_thumb', 790, 392, true);
-                
-                add_image_size('post_feature_other_thumb', 380, 200, true);
-
+             
 		/**
 		 * Enable support for Post Formats
 		*/
@@ -136,16 +132,6 @@ function ideabox_widgets_init() {
         'after_title' => '</h3>'
     ));
 
-    register_sidebar(array(
-        'name' => esc_html__('Footer #4', 'ideabox'),
-        'id' => 'sidebar-footer4',
-        'description' => esc_html__('Appears in the footer sidebar', 'safari'),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>'
-    ));
-
 }
 add_action( 'widgets_init', 'ideabox_widgets_init' );
 
@@ -186,7 +172,7 @@ function ideabox_scripts() {
 	}
         
         
-	$fonts_url = 'http://fonts.googleapis.com/css?family=Raleway:400,300,700';
+	$fonts_url = 'http://fonts.googleapis.com/css?family=Oxygen:400,300,700';
 	if ( !empty( $fonts_url ) ) {
 		wp_enqueue_style( 'ideabox-fonts', esc_url_raw( $fonts_url ), array(), null );
 	}

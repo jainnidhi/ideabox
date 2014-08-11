@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php if(!is_front_page() && !is_single() && !is_page_template( 'template-store.php' ) && !is_page_template( 'checkout-template.php' )) { ?>
+<?php if(!is_front_page() && !is_singular('download') && !is_page_template( 'template-store.php' ) && !is_page_template( 'twocolumn-store-template.php' ) && !is_page_template( 'checkout-template.php' )) { ?>
 			</div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
 		</div><!-- close .row -->
 	</div><!-- close .container -->
@@ -18,11 +18,11 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="container">
 		<div class="row">
-                    <div class="site-footer-inner-wrap">
+                    <div class="site-footer-inner-wrap clearfix">
                         <?php
                                 // Count how many footer sidebars are active so we can work out how many containers we need
                                 $footerSidebars = 0;
-                                for ($x = 1; $x <= 4; $x++) {
+                                for ($x = 1; $x <= 3; $x++) {
                                     if (is_active_sidebar('sidebar-footer' . $x)) {
                                         $footerSidebars++;
                                     }
@@ -34,10 +34,10 @@
                                    
                                         <?php
                                         // Work out the container class name based on the number of active footer sidebars
-                                        $containerClass = "col-sm-" . 12 / $footerSidebars;
+                                        $containerClass = "col-lg-" . 12 / $footerSidebars;
 
                                     // Display the active footer sidebars
-                                    for ($x = 1; $x <= 4; $x++) {
+                                    for ($x = 1; $x <= 3; $x++) {
                                         if (is_active_sidebar('sidebar-footer' . $x)) {
                                             ?>
                                             <div id="<?php echo 'footer-widget' . $x; ?>" class="<?php echo $containerClass ?>">

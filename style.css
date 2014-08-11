@@ -36,7 +36,7 @@ Twitter Bootstrap
 /* This is a small security for too long strings titles */
 body {
     word-wrap: break-word;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Oxygen', sans-serif;
 }
 
 /* Alignment */
@@ -260,7 +260,7 @@ object {
 }
 
 .site-title a{
-    color:#009cee;
+    color:#f14141;
 }
 
 /* Navigation */
@@ -303,7 +303,7 @@ object {
 }
 
 .dropdown-menu li a:hover, .dropdown-menu li a:focus{
-    background:#009cee;
+    background:#f14141;
 }
 
 .navbar-toggle{
@@ -329,9 +329,7 @@ object {
 /* Home Slider */
 
 .slider-wrapper{
-    background:#009cee;
-    background: url(includes/images/tes-back.jpg) 50% -127.8px repeat fixed;
-    background-size:cover;
+    background:#f14141;
 }
 
 .slider-block{
@@ -339,7 +337,7 @@ object {
     text-align:center;
 }
 
-.slider-block p{
+.slider-block{
     color:#fff;
 }
 
@@ -372,7 +370,7 @@ object {
     width: 80px;
     height: 80px;
     padding-top: 10px; 
-    background: #009cee;
+    background: #f14141;
     border-radius: 100%; 
     color: #fff;
     text-align: center;
@@ -484,8 +482,19 @@ object {
 }
 
 .edd-submit.button.blue{
-    background:#009cee;
-    border:none;
+    background:#f14141;
+    border: 3px solid rgba(0,0,0,.15);
+    border-width: 0 0 4px 0;
+    border-radius:0;
+}
+
+.edd-submit.button.blue:hover{
+    background:#D52C2C;
+    border-color:rgba(0,0,0,.15);
+}
+
+.store-template .edd-submit.button.blue:hover{
+    background:#D52C2C;
 }
 
 .store-template .edd-submit.button.blue{
@@ -501,17 +510,17 @@ object {
 .demo-button{
     float: right;
     padding: 6px 12px;
-    background: #009cee;
+    background: #f14141;
+    border: 3px solid rgba(0,0,0,.15);
+    border-width: 0 0 4px 0;
     display: inline-block;
     color: #fff;
-    border-radius: 5px;
     font-size: 14px;
     text-transform: uppercase;
 }
 
 .demo-button:hover{
-    background: #3276b1;
-    border-color: #285e8e;
+    background: #D52C2C;
     color:#fff;
 }
 
@@ -522,6 +531,10 @@ object {
 .page-template-checkout-template-php .hentry{
     padding:30px;
     border:1px solid #111;
+}
+
+.page-template-checkout-template-php article .page-header{
+    border-bottom:0;
 }
 
 .page-template-checkout-template-php #edd_checkout_form_wrap input[type=email], 
@@ -542,6 +555,12 @@ object {
     text-align:center;
 }
 
+.single-download h2{
+    font-size:44px;
+    font-weight:700;
+    margin:40px 0 20px;
+}
+
 .single-download .demo-button{
     float:none;
 }
@@ -550,8 +569,58 @@ object {
     text-transform:uppercase;
     margin-top: 8px;
 }
+
+.single-download .product-summary .edd-submit.button.blue{
+    background:#2ac14e;
+    border: 3px solid rgba(0,0,0,.15);
+    border-width: 0 0 4px 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    padding: 16px 36px 13px 36px;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: auto;
+    font-size: 20px;
+    line-height: 28px;
+    margin:0 16px;
+    border-radius:3px;
+}
+
+.single-download .product-summary .edd-submit.button.blue:hover{
+    background: #45df69;
+}
+
+.single-download .product-summary .demo-button{
+    background-color: #cd3333;
+    border: 3px solid rgba(0,0,0,.15);
+    border-width: 0 0 4px 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    padding: 13px 36px;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: auto;
+    font-size: 20px;
+    line-height: 28px;
+    margin:0 16px;
+    height:61px;
+    border-radius:3px;
+}
+
+.single-download .product-summary .demo-button:hover{
+    background:#de4c4c;
+}
+
+.single-download .product-summary .product-buttons{
+    padding:40px 0 70px;
+}
 .single-download .edd_download_purchase_form{
     display:inline-block;
+    margin-bottom:0;
 }
 
 .single-download .product-summary{
@@ -559,8 +628,16 @@ object {
     color:#fff;
 }
 
+.single-download .product-summary .container{
+    padding:0;
+}
+
 .single-download .product-image{
     text-align:center;
+}
+
+#edd-purchase-button, .edd-submit, input[type=submit].edd-submit{
+    border-radius:0;
 }
 /* Pagination */
 
@@ -576,74 +653,7 @@ object {
 
 .pagination .page-numbers:hover{
     color:#fff;
-}
-/* Front Posts */
-
-.blog-area{
-    background:#fff;
-}
-.blog-wrap{
-    padding:50px 0;
-}
-
-#front-featured-posts{
-    padding-top:30px;
-}
-
-.home-featured-post{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.post-meta span.posted_by:after {
-    content: "|";
-    margin-left: 8px;
-    margin-right: 4px;
-}
-
-.home-post-title-area{
-    text-align:center;
-}
-
-.home-post-title h3{
-    font-size:30px;
-    font-weight:700;
-}
-
-.home-featured-post .featured-post-content{
-    background: rgb(243, 241, 241);
-    position: relative;
-    padding: 15px 15px;
-    text-align: center;
-}
-
-.featured-post-content:before{
-    content:"";
-    display:block;
-    left: 46%;
-    width: 0;
-    height: 0;
-    border-left: 16px solid transparent;
-    border-right: 16px solid transparent;
-    border-bottom: 16px solid rgb(243, 241, 241);
-    position:absolute;
-    top:-16px;
-}
-
-.featured-post-image{
-    position:relative;
-}
-
-.featured-post-image .post_format{
-    right: 0;
-    background: #009cee;
-    padding: 10px 15px;
-    font-size: 24px;
-    color: #fff;
-    min-width: 46px;
-    min-height: 46px;
-    position: absolute;
-    top: 0;
+    background:#f14141;
 }
 
 /* Main-content */
@@ -684,7 +694,7 @@ article .page-header{
 
 .more-link{
     display: inline-block;
-    background: #009cee;
+    background: #f14141;
     padding: 6px 20px;
     color: #fff;
     border: 1px solid #ddd;
@@ -728,7 +738,7 @@ time, address, .post-categories {
 }
 
 .pager li > a:hover, .pager li > a:focus {
-    background-color: #009cee;
+    background-color: #f14141;
     color:#fff;
 }
 
@@ -784,7 +794,7 @@ time, address, .post-categories {
     border-radius: 0;
     background: #fff;
     border: none;
-    color: #009cee;
+    color: #f14141;
 }
 
 .comment-reply-link:hover{
@@ -817,7 +827,7 @@ time, address, .post-categories {
 
 #commentsubmit{
     border-radius: 0;
-    background: #009cee;
+    background: #f14141;
     border: none;
     padding: 10px 24px;
 }
@@ -976,7 +986,7 @@ input[type="search"]{
 /* CTA Area */
 
 .cta-area{
-    background:#009cee;
+    background:#f14141;
 }
 
 .cta-wrap{
@@ -1027,7 +1037,7 @@ input[type="search"]{
     width: 66px;
     bottom: -1px;
     right: 0;
-    border-bottom: 1px solid #009cee;
+    border-bottom: 1px solid #f14141;
     padding-bottom: 0px;
     cursor: text;
     color: inherit;
@@ -1038,11 +1048,11 @@ input[type="search"]{
     font-family:"FontAwesome";
     float: left;
     margin-right: 10px;
-    color:#009cee;
+    color:#f14141;
 }
 
 .sidebar a:hover{
-    color:#009cee;
+    color:#f14141;
 }
 
 .nav>li>a:hover, .nav>li>a:focus{
@@ -1062,8 +1072,25 @@ input[type="search"]{
 .site-footer{
     background:#ddd;
 }
+
+.site-footer-inner-wrap{
+    border-bottom:1px solid #ADA8A8;
+}
 .site-footer-inner{
     text-align:center;
+}
+
+.site-footer .nav>li>a{
+    padding:0;
+}
+
+.site-footer ul li {
+padding-bottom: 5px;
+margin-bottom: 10px;
+}
+
+.footer-navigation{
+    clear:both;
 }
 
 .footer-navigation-inner{
@@ -1080,330 +1107,6 @@ input[type="search"]{
     float:none;
 }
 
-/* Contact Details */
-
-.contact-details{
-    text-align:center;
-    padding:10px 0;
-}
-
-.contact-details #email:before {
-    font-family: "FontAwesome";
-    content: "\f0e0";
-    margin-right: 10px;
-    color: #009cee;
-}
-
-.contact-details #phone:before {
-    font-family: "FontAwesome";
-    content: "\f095";
-    margin-right: 10px;
-    color: #009cee;
-}
-
-.contact-details li {
-    list-style: none;
-    margin-bottom: 10px;
-    float: none;
-    margin-right: 10px;
-    display: inline-block;
-}
-
-/* ===========================
-   Color Schemes
-   =========================== */
-
-/* Ideabox Red */
-
-.ideabox-red .slider-wrapper,
-.ideabox-red .featured-image,
-.ideabox-red .home-video-area,
-.ideabox-red .cta-area,
-.ideabox-red .contact-area,
-.ideabox-red .contact-map h3,
-.ideabox-red .more-link,
-.ideabox-red .featured-post-image .post_format,
-.ideabox-red #commentsubmit,
-.ideabox-red .pager li > a:hover,
-.ideabox-red .portfolio-buttons a,
-.ideabox-red .dropdown-menu li a:hover,
-.ideabox-red .pagination .page-numbers:hover,
-.ideabox-red .edd-submit.button.blue,
-.ideabox-red .demo-button{
-    background:#f14141;
-}
-
-.ideabox-red .featured-products .product:hover .product-info{
-    background:rgba(219, 53, 30, 0.8);
-}
-
-.ideabox-red .featured-team-content{
-    border:3px solid #f14141;
-}
-
-.ideabox-red .sidebar h3:after{
-    border-bottom:1px solid #f14141;
-}
-
-.ideabox-red .site-title a,
-.ideabox-red .client-name a,
-.ideabox-red .contact-details #email:before,
-.ideabox-red .contact-details #phone:before,
-.ideabox-red .sidebar li:before,
-.ideabox-red .comment-reply-link,
-.ideabox-red .sidebar a:hover{
-    color:#f14141;
-}
-
-/* Ideabox Green */
-
-.ideabox-green .slider-wrapper,
-.ideabox-green .featured-image,
-.ideabox-green .home-video-area,
-.ideabox-green .cta-area,
-.ideabox-green .contact-area,
-.ideabox-green .contact-map h3,
-.ideabox-green .more-link,
-.ideabox-green .featured-post-image .post_format,
-.ideabox-green #commentsubmit,
-.ideabox-green .pager li > a:hover,
-.ideabox-green .portfolio-buttons a,
-.ideabox-green .dropdown-menu li a:hover,
-.ideabox-green .pagination .page-numbers:hover,
-.ideabox-green .edd-submit.button.blue,
-.ideabox-green .demo-button{
-    background:#3DB943;
-}
-
-.ideabox-green .featured-products .product:hover .product-info{
-    background:rgba(62, 178, 90, 0.8);
-}
-
-.ideabox-green .featured-team-content{
-    border:3px solid #3DB943;
-}
-
-.ideabox-green .sidebar h3:after{
-    border-bottom:1px solid #3DB943;
-}
-
-.ideabox-green .site-title a,
-.ideabox-green .client-name a,
-.ideabox-green .contact-details #email:before,
-.ideabox-green .contact-details #phone:before,
-.ideabox-green .sidebar li:before,
-.ideabox-green .comment-reply-link,
-.ideabox-green .sidebar a:hover{
-    color:#3DB943;
-}
-
-
-/* Ideabox Yellow */
-
-.ideabox-yellow .slider-wrapper,
-.ideabox-yellow .featured-image,
-.ideabox-yellow .home-video-area,
-.ideabox-yellow .cta-area,
-.ideabox-yellow .contact-area,
-.ideabox-yellow .contact-map h3,
-.ideabox-yellow .more-link,
-.ideabox-yellow .featured-post-image .post_format,
-.ideabox-yellow #commentsubmit,
-.ideabox-yellow .pager li > a:hover,
-.ideabox-yellow .portfolio-buttons a,
-.ideabox-yellow .dropdown-menu li a:hover,
-.ideabox-yellow .pagination .page-numbers:hover,
-.ideabox-yellow .edd-submit.button.blue,
-.ideabox-yellow .demo-button{
-    background:#F1A708;
-}
-
-.ideabox-yellow .featured-products .product:hover .product-info{
-    background:rgba(233, 191, 23, 0.8);
-}
-
-.ideabox-yellow .featured-team-content{
-    border:3px solid #F1A708;
-}
-
-.ideabox-yellow .sidebar h3:after{
-    border-bottom:1px solid #F1A708;
-}
-
-.ideabox-yellow .site-title a,
-.ideabox-yellow .client-name a,
-.ideabox-yellow .contact-details #email:before,
-.ideabox-yellow .contact-details #phone:before,
-.ideabox-yellow .sidebar li:before,
-.ideabox-yellow .comment-reply-link,
-.ideabox-yellow .sidebar a:hover{
-    color:#F1A708;
-}
-
-
-/* Ideabox Purple */
-
-.ideabox-purple .slider-wrapper,
-.ideabox-purple .featured-image,
-.ideabox-purple .home-video-area,
-.ideabox-purple .cta-area,
-.ideabox-purple .contact-area,
-.ideabox-purple .contact-map h3,
-.ideabox-purple .more-link,
-.ideabox-purple .featured-post-image .post_format,
-.ideabox-purple #commentsubmit,
-.ideabox-purple .pager li > a:hover,
-.ideabox-purple .portfolio-buttons a,
-.ideabox-purple .dropdown-menu li a:hover,
-.ideabox-purple .pagination .page-numbers:hover,
-.ideabox-purple .edd-submit.button.blue,
-.ideabox-purple .demo-button{
-    background:#996bc5;
-}
-
-.ideabox-purple .featured-products .product:hover .product-info{
-    background:rgba(132, 79, 139, 0.8);
-}
-
-.ideabox-purple .featured-team-content{
-    border:3px solid #996bc5;
-}
-
-.ideabox-purple .sidebar h3:after{
-    border-bottom:1px solid #996bc5;
-}
-
-.ideabox-purple .site-title a,
-.ideabox-purple .client-name a,
-.ideabox-purple .contact-details #email:before,
-.ideabox-purple .contact-details #phone:before,
-.ideabox-purple .sidebar li:before,
-.ideabox-purple .comment-reply-link,
-.ideabox-purple .sidebar a:hover{
-    color:#996bc5;
-}
-
-/* Ideabox Orange */
-
-.ideabox-orange .slider-wrapper,
-.ideabox-orange .featured-image,
-.ideabox-orange .home-video-area,
-.ideabox-orange .cta-area,
-.ideabox-orange .contact-area,
-.ideabox-orange .contact-map h3,
-.ideabox-orange .more-link,
-.ideabox-orange .featured-post-image .post_format,
-.ideabox-orange #commentsubmit,
-.ideabox-orange .pager li > a:hover,
-.ideabox-orange .portfolio-buttons a,
-.ideabox-orange .dropdown-menu li a:hover,
-.ideabox-orange .pagination .page-numbers:hover,
-.ideabox-orange .edd-submit.button.blue,
-.ideabox-orange .demo-button{
-    background:#FC8B23;
-}
-
-.ideabox-orange .featured-products .product:hover .product-info{
-    background:rgba(240, 132, 32, 0.8);
-}
-
-.ideabox-orange .featured-team-content{
-    border:3px solid #FC8B23;
-}
-
-.ideabox-orange .sidebar h3:after{
-    border-bottom:1px solid #FC8B23;
-}
-
-.ideabox-orange .site-title a,
-.ideabox-orange .client-name a,
-.ideabox-orange .contact-details #email:before,
-.ideabox-orange .contact-details #phone:before,
-.ideabox-orange .sidebar li:before,
-.ideabox-orange .comment-reply-link,
-.ideabox-orange .sidebar a:hover{
-    color:#FC8B23;
-}
-
-/* Ideabox Brown */
-
-.ideabox-brown .slider-wrapper,
-.ideabox-brown .featured-image,
-.ideabox-brown .home-video-area,
-.ideabox-brown .cta-area,
-.ideabox-brown .contact-area,
-.ideabox-brown .contact-map h3,
-.ideabox-brown .more-link,
-.ideabox-brown .featured-post-image .post_format,
-.ideabox-brown #commentsubmit,
-.ideabox-brown .pager li > a:hover,
-.ideabox-brown .portfolio-buttons a,
-.ideabox-brown .dropdown-menu li a:hover,
-.ideabox-brown .pagination .page-numbers:hover,
-.ideabox-brown .edd-submit.button.blue,
-.ideabox-brown .demo-button{
-    background:#C78926;
-}
-
-.ideabox-brown .featured-products .product:hover .product-info{
-    background:rgba(182, 128, 78, 0.8);
-}
-
-.ideabox-brown .featured-team-content{
-    border:3px solid #C78926;
-}
-
-.ideabox-brown .sidebar h3:after{
-    border-bottom:1px solid #C78926;
-}
-
-.ideabox-brown .site-title a,
-.ideabox-brown .client-name a,
-.ideabox-brown .contact-details #email:before,
-.ideabox-brown .contact-details #phone:before,
-.ideabox-brown .sidebar li:before,
-.ideabox-brown .comment-reply-link,
-.ideabox-brown .sidebar a:hover{
-    color:#C78926;
-}
-
-/* Ideabox Pink */
-
-.ideabox-pink .slider-wrapper,
-.ideabox-pink .featured-image,
-.ideabox-pink .home-video-area,
-.ideabox-pink .cta-area,
-.ideabox-pink .contact-area,
-.ideabox-pink .contact-map h3,
-.ideabox-pink .more-link,
-.ideabox-pink .featured-post-image .post_format,
-.ideabox-pink #commentsubmit,
-.ideabox-pink .pager li > a:hover,
-.ideabox-pink .portfolio-buttons a,
-.ideabox-pink .dropdown-menu li a:hover,
-.ideabox-pink .pagination .page-numbers:hover,
-.ideabox-pink .edd-submit.button.blue,
-.ideabox-pink .demo-button{
-    background:#EE3178;
-}
-
-.ideabox-pink .featured-team-content{
-    border:3px solid #EE3178;
-}
-
-.ideabox-pink .sidebar h3:after{
-    border-bottom:1px solid #EE3178;
-}
-
-.ideabox-pink .site-title a,
-.ideabox-pink .client-name a,
-.ideabox-pink .contact-details #email:before,
-.ideabox-pink .contact-details #phone:before,
-.ideabox-pink .sidebar li:before,
-.ideabox-pink .comment-reply-link,
-.ideabox-pink .sidebar a:hover{
-    color:#EE3178;
-}
 
 @media (min-width:320px){
     .site-navigation-inner{

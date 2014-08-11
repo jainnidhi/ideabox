@@ -38,10 +38,5 @@
            
 
         <?php endif; ?>
-         <?php if (is_active_sidebar('sidebar_shop')) { ?>
-                <div class="right-sidebar">
-                    <?php dynamic_sidebar('sidebar_shop'); ?>
-                </div><!--end .col grid_4_of_12-->
-            <?php } ?>
-
+        
     </div><!-- close .sidebar-padder -->

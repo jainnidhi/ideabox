@@ -24,12 +24,7 @@ function ideabox_body_classes( $classes ) {
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
-         if(get_theme_mod('ideabox_color_scheme')) {
-        $slug = strtolower(get_theme_mod('ideabox_color_scheme'));
-        $classes[] = 'ideabox-' . $slug;
         
-        }
-
 	return $classes;
         
 }

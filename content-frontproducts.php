@@ -16,14 +16,19 @@ if (class_exists('Easy_Digital_Downloads')) {
     <div class="container">
         <div class="row">
         <div class="store-info">
-            <?php if (get_theme_mod('ideabox_edd_store_archives_title')) : ?>
+            <?php if (get_theme_mod('ideabox_edd_store_archives_title')) { ?>
                 <h2 class="store-title"><?php echo esc_html(get_theme_mod('ideabox_edd_store_archives_title')); ?></h2>
-                <?php endif; ?>
-                <?php if (get_theme_mod('ideabox_edd_store_archives_description')) : ?>
+            <?php } else { ?>
+                <h2 class="store-title"><?php esc_html_e('Latest Products', 'ideabox'); ?></h2>
+            <?php } ?>
+                
+                <?php if (get_theme_mod('ideabox_edd_store_archives_description')) { ?>
                 <div class="store-description">
-                <?php echo wpautop(get_theme_mod('ideabox_edd_store_archives_description')); ?>
+                    <p class="description"><?php echo esc_html(get_theme_mod('ideabox_edd_store_archives_description')); ?></p>
                 </div>
-        <?php endif; ?>
+                <?php } else { ?>
+                <p class="description">You can add here product description.</p>
+                <?php } ?>
         </div>
             
             <ul id="filters">

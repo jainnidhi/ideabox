@@ -24,14 +24,14 @@ get_header();
         <div class="row">
       <div class="col-lg-12">
           <div class="home-featured-left col-lg-6">
-              <?php if(get_theme_mod('home_feature_left')) { ?>
+              <?php if(get_theme_mod('home_featured_left')) { ?>
               <?php echo get_theme_mod('home_featured_left'); ?>
               <?php } else { ?>
               <img  src="<?php echo get_template_directory_uri(); ?>/includes/images/slider-1.jpg" alt="first-slider-image"/>
               <?php } ?>
           </div>
           <div class="home-featured-right col-lg-6">
-              <?php if(get_theme_mod('home_feature_right')) { ?>
+              <?php if(get_theme_mod('home_featured_right')) { ?>
               <?php echo get_theme_mod('home_featured_right'); ?>
               <?php } else { ?>
               <p><?php esc_html_e('Showcase your multiple services and let users understand about your business.', 'ideabox') ?></p>

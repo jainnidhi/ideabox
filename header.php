@@ -77,7 +77,7 @@
 </header><!-- #masthead -->
 
 
-<?php if(!is_front_page() && !is_single() && !is_page_template( 'template-store.php' ) && !is_page_template( 'checkout-template.php' )) { ?>
+<?php if(!is_front_page() && !is_singular('download') && !is_page_template( 'template-store.php' ) && !is_page_template( 'twocolumn-store-template.php' ) && !is_page_template( 'checkout-template.php' )) { ?>
 
 <div class="main-content">
 	<div class="container">

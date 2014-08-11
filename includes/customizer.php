@@ -66,39 +66,7 @@ function ideabox_customize_register($wp_customize) {
 
     }
 
-    // Add new section for theme layout and color schemes
-    $wp_customize->add_section('ideabox_theme_layout_settings', array(
-        'title' => __('Color Scheme', 'ideabox'),
-        'priority' => 32,
-    ));
-
-
-    // Add color scheme options
-
-    $wp_customize->add_setting('ideabox_color_scheme', array(
-        'default' => 'blue',
-        'sanitize_callback' => 'ideabox_sanitize_color_scheme_option',
-    ));
-
-    $wp_customize->add_control('ideabox_color_scheme', array(
-        'label' => 'Color Schemes',
-        'section' => 'ideabox_theme_layout_settings',
-        'default' => 'red',
-        'type' => 'radio',
-        'choices' => array(
-            'blue' => __('Blue', 'ideabox'),
-            'red' => __('Red', 'ideabox'),
-            'green' => __('Green', 'ideabox'),
-            'yellow' => __('Yellow', 'ideabox'),
-            'purple' => __('Purple', 'ideabox'),
-            'orange' => __('Orange', 'ideabox'),
-            'brown' => __('Brown', 'ideabox'),
-            'pink' => __('Pink', 'ideabox'),
-        ),
-    ));
-
-
-    // Add new section for custom favicon settings
+       // Add new section for custom favicon settings
     $wp_customize->add_section('ideabox_custom_favicon_setting', array(
         'title' => __('Custom Favicon', 'ideabox'),
         'priority' => 63,
@@ -143,37 +111,7 @@ function ideabox_customize_register($wp_customize) {
         'title' => __('Home Featured', 'ideabox'),
         'priority' => 37,
     ));
-    
-    $wp_customize->add_setting('ideabox_home_slider_color', array(
-        'default' => '#009cee',
-        'sanitize_callback' => 'ideabox_sanitize_hex_color',
-        'sanitize_js_callback' => 'ideabox_sanitize_escaping',
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ideabox_home_slider_color', array(
-        'label' => 'Section Background color',
-        'section' => 'home_featured_setting',
-        'settings' => 'ideabox_home_slider_color',
-        'priority' => 1,
-            )
-    ));
-    
-    $wp_customize->add_setting('slider_background_image', array(
-        'transport' => 'postMessage',
-    ));
-
-    $wp_customize->add_control(
-            new WP_Customize_Image_Control(
-            $wp_customize, 'slider_background_image', array(
-        'label' => 'Slider Background Image',
-        'section' => 'home_featured_setting',
-        'settings' => 'slider_background_image',
-        'priority' => 2,
-            )
-            )
-    );
-
-    
+        
     $wp_customize->add_setting('home_featured_left', array('default' => '',
         'sanitize_callback' => 'ideabox_sanitize_text',
         'transport' => 'postMessage',
@@ -333,133 +271,12 @@ function ideabox_customize_register($wp_customize) {
         'priority' => 3,
     )));
     
-    if (class_exists('Easy_Digital_Downloads')) {
-        $wp_customize->add_section('ideabox_edd_options', array(
-            'title' => __('Easy Digital Downloads', 'ideabox'),
-            'description' => __('All other EDD options are under Dashboard => Downloads.', 'ideabox'),
-            'priority' => 48,
-        ));
-
-        // enable featured products on front page?
-        $wp_customize->add_setting('ideabox_edd_front_featured_products', array(
-            'default' => 0,
-            'sanitize_callback' => 'ideabox_sanitize_checkbox',
-        ));
-        $wp_customize->add_control('ideabox_edd_front_featured_products', array(
-            'label' => __('Show featured products on Front Page', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'priority' => 10,
-            'type' => 'checkbox',
-        ));
-
-        // store front/archive item count
-        $wp_customize->add_setting('ideabox_store_front_featured_count', array(
-            'default' => 3,
-            'sanitize_callback' => 'ideabox_sanitize_integer',
-        ));
-        $wp_customize->add_control('ideabox_store_front_featured_count', array(
-            'label' => __('Number of Featured Products', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_store_front_featured_count',
-            'priority' => 15,
-        ));
-
-        // store front/downloads archive headline
-        $wp_customize->add_setting('ideabox_edd_store_archives_title', array(
-            'default' => __('Latest Products', 'ideabox'),
-            'sanitize_callback' => 'ideabox_sanitize_text'
-        ));
-        $wp_customize->add_control('ideabox_edd_store_archives_title', array(
-            'label' => __('Featured Products Title', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_edd_store_archives_title',
-            'priority' => 20,
-        ));
-        // store front/downloads archive description
-        $wp_customize->add_setting('ideabox_edd_store_archives_description', array(
-            'default' => null,
-            'sanitize_callback' => 'ideabox_sanitize_text',
-        ));
-        $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'ideabox_edd_store_archives_description', array(
-            'label' => __('Featured Products Description', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_edd_store_archives_description',
-            'priority' => 25,
-        )));
-        // read more link
-        $wp_customize->add_setting('ideabox_edd_view_details', array(
-            'default' => __('View Details', 'ideabox'),
-            'sanitize_callback' => 'ideabox_sanitize_text',
-        ));
-        $wp_customize->add_control('ideabox_edd_view_details', array(
-            'label' => __('Product Details Text', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_edd_view_details',
-            'priority' => 30,
-        ));
-        
-        
-        $wp_customize->add_setting('ideabox_edd_store_link_text', array(
-            'sanitize_callback' => 'sanitize_text_field',
-            ));
-        
-        $wp_customize->add_control('ideabox_edd_store_link_text', array(
-            'label' => __('Store Link Text', 'tatva'),
-            'section' => 'ideabox_edd_front_page_options',
-            'settings' => 'ideabox_edd_store_link_text',
-            'priority' => 40,
-        ));
-        // sotre link
-        $wp_customize->add_setting('ideabox_edd_store_link_url', array('default' => __('', 'tatva'),
-            'sanitize_callback' => 'sanitize_text_field',
-            ));
-        
-        $wp_customize->add_control('ideabox_edd_store_link_url', array(
-            'label' => __('Store Page Link URL', 'tatva'),
-            'section' => 'ideabox_edd_front_page_options',
-            'settings' => 'ideabox_edd_store_link_url',
-            'priority' => 45,
-        ));
-        
-        $wp_customize->add_setting('store_page_title', array(
-            'sanitize_callback' => 'ideabox_sanitize_text'
-        ));
-        $wp_customize->add_control('store_page_title', array(
-            'label' => __('Store Title', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'store_page_title',
-            'priority' => 50,
-        ));
-        // store front/downloads archive description
-        $wp_customize->add_setting('store_page_description', array(
-            'default' => null,
-            'sanitize_callback' => 'ideabox_sanitize_text',
-        ));
-        $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'store_page_description', array(
-            'label' => __('Store Description', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'store_page_description',
-            'priority' => 55,
-        )));
-        
-        // store front/archive item count
-        $wp_customize->add_setting('ideabox_store_front_count', array(
-            'default' => 9,
-            'sanitize_callback' => 'ideabox_sanitize_integer',
-        ));
-        $wp_customize->add_control('ideabox_store_front_count', array(
-            'label' => __('Store Item Count', 'ideabox'),
-            'section' => 'ideabox_edd_options',
-            'settings' => 'ideabox_store_front_count',
-            'priority' => 60,
-        ));
-    }
     
-    /* Front CTA */
+     /* Front CTA */
     $wp_customize->add_section('ideabox_front_cta_options', array(
         'title' => __('CTA Settings', 'ideabox'),
         'description' => __('Settings for displaying featured cta on Front Page', 'ideabox'),
-        'priority' => 52,
+        'priority' => 48,
     ));
     
     $wp_customize->add_setting('ideabox_cta_section_check', array(
@@ -472,20 +289,7 @@ function ideabox_customize_register($wp_customize) {
         'priority' => 1,
         'type' => 'checkbox',
     ));
-    
-    $wp_customize->add_setting('ideabox_cta_color', array(
-        'default' => '#009cee',
-        'sanitize_callback' => 'ideabox_sanitize_hex_color',
-        'sanitize_js_callback' => 'ideabox_sanitize_escaping',
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ideabox_cta_color', array(
-        'label' => 'Section Background color',
-        'section' => 'ideabox_front_cta_options',
-        'settings' => 'ideabox_cta_color',
-        'priority' => 2,
-            )
-    ));
+  
     
     $wp_customize->add_setting('cta_title', array(
         'sanitize_callback' => 'ideabox_sanitize_text',
@@ -534,89 +338,116 @@ function ideabox_customize_register($wp_customize) {
         'settings' => 'cta_link_url',
         'priority' => 16,
     ));
-
-
-    // Add new section for displaying Featured Posts on Front Page
-    $wp_customize->add_section('ideabox_front_page_post_options', array(
-        'title' => __('Featured Posts', 'ideabox'),
-        'description' => __('Settings for displaying featured posts on Front Page', 'ideabox'),
-        'priority' => 54,
-    ));
-
-    // enable featured posts on front page?
-    $wp_customize->add_setting('ideabox_front_featured_posts_check', array(
-        'default' => 1,
-        'sanitize_callback' => 'ideabox_sanitize_checkbox',
-    ));
-    $wp_customize->add_control('ideabox_front_featured_posts_check', array(
-        'label' => __('Show featured posts on Front Page', 'ideabox'),
-        'section' => 'ideabox_front_page_post_options',
-        'priority' => 1,
-        'type' => 'checkbox',
-    ));
     
-    $wp_customize->add_setting('ideabox_blog_background_color', array(
-        'default' => '#ffffff',
-        'sanitize_callback' => 'ideabox_sanitize_hex_color',
-        'sanitize_js_callback' => 'ideabox_sanitize_escaping',
-    ));
+    if (class_exists('Easy_Digital_Downloads')) {
+        $wp_customize->add_section('ideabox_edd_options', array(
+            'title' => __('Easy Digital Downloads', 'ideabox'),
+            'description' => __('All other EDD options are under Dashboard => Downloads.', 'ideabox'),
+            'priority' => 52,
+        ));
 
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'ideabox_blog_background_color', array(
-        'label' => 'Section Background color',
-        'section' => 'ideabox_front_page_post_options',
-        'settings' => 'ideabox_blog_background_color',
-        'priority' => 2,
-            )
-    ));
-    
-    // post Title
-    $wp_customize->add_setting('ideabox_post_title', array(
-        'sanitize_callback' => 'ideabox_sanitize_text',
-        'transport' => 'postMessage',
-    ));
+        // enable featured products on front page?
+        $wp_customize->add_setting('ideabox_edd_front_featured_products', array(
+            'default' => 0,
+            'sanitize_callback' => 'ideabox_sanitize_checkbox',
+        ));
+        $wp_customize->add_control('ideabox_edd_front_featured_products', array(
+            'label' => __('Show featured products on Front Page', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'priority' => 10,
+            'type' => 'checkbox',
+        ));
 
-    $wp_customize->add_control('ideabox_post_title', array(
-        'label' => __('Section Title', 'ideabox'),
-        'section' => 'ideabox_front_page_post_options',
-        'settings' => 'ideabox_post_title',
-        'priority' => 3,
-    ));
-    
-    $wp_customize->add_setting('ideabox_post_description', array('default' => '',
-        'sanitize_callback' => 'ideabox_sanitize_text',
-        'transport' => 'postMessage',
-    ));
+        // store front/archive item count
+        $wp_customize->add_setting('ideabox_store_front_featured_count', array(
+            'default' => 3,
+            'sanitize_callback' => 'ideabox_sanitize_integer',
+        ));
+        $wp_customize->add_control('ideabox_store_front_featured_count', array(
+            'label' => __('Number of Featured Products', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_store_front_featured_count',
+            'priority' => 15,
+        ));
 
-    $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'ideabox_post_description', array(
-        'label' => __('Description', 'ideabox'),
-        'section' => 'ideabox_front_page_post_options',
-        'settings' => 'ideabox_post_description',
-        'priority' => 5,
-    )));
-
-    // select number of posts for featured posts on front page
-    $wp_customize->add_setting('ideabox_front_featured_posts_count', array(
-        'default' => 3,
-        'sanitize_callback' => 'ideabox_sanitize_text',
-        'transport' => 'postMessage',
-    ));
-    $wp_customize->add_control('ideabox_front_featured_posts_count', array(
-        'label' => __('Number of posts to display', 'ideabox'),
-        'section' => 'ideabox_front_page_post_options',
-        'settings' => 'ideabox_front_featured_posts_count',
-        'priority' => 20,
-    ));
-    // select category for featured posts 
-    $wp_customize->add_setting('ideabox_front_featured_posts_cat', array('default' => 0,));
-    $wp_customize->add_control(new WP_Customize_Dropdown_Categories_Control($wp_customize, 'ideabox_front_featured_posts_cat', array(
-        'label' => __('Post Category', 'ideabox'),
-        'section' => 'ideabox_front_page_post_options',
-        'type' => 'dropdown-categories',
-        'settings' => 'ideabox_front_featured_posts_cat',
-        'priority' => 30,
-    )));
-
+        // store front/downloads archive headline
+        $wp_customize->add_setting('ideabox_edd_store_archives_title', array(
+            'sanitize_callback' => 'ideabox_sanitize_text'
+        ));
+        $wp_customize->add_control('ideabox_edd_store_archives_title', array(
+            'label' => __('Featured Products Title', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_edd_store_archives_title',
+            'priority' => 20,
+        ));
+        // store front/downloads archive description
+        $wp_customize->add_setting('ideabox_edd_store_archives_description', array(
+            'sanitize_callback' => 'ideabox_sanitize_text',
+        ));
+        $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'ideabox_edd_store_archives_description', array(
+            'label' => __('Featured Products Description', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_edd_store_archives_description',
+            'priority' => 25,
+        )));
+      
+        $wp_customize->add_setting('ideabox_edd_store_link_text', array(
+            'sanitize_callback' => 'sanitize_text_field',
+            ));
         
+        $wp_customize->add_control('ideabox_edd_store_link_text', array(
+            'label' => __('Link Text', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_edd_store_link_text',
+            'priority' => 40,
+        ));
+        // sotre link
+        $wp_customize->add_setting('ideabox_edd_store_link_url', array(
+            'sanitize_callback' => 'sanitize_text_field',
+            ));
+        
+        $wp_customize->add_control('ideabox_edd_store_link_url', array(
+            'label' => __('Link URL', 'tatva'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_edd_store_link_url',
+            'priority' => 45,
+        ));
+        
+        $wp_customize->add_setting('store_page_title', array(
+            'sanitize_callback' => 'ideabox_sanitize_text'
+        ));
+        $wp_customize->add_control('store_page_title', array(
+            'label' => __('Store Title', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'store_page_title',
+            'priority' => 50,
+        ));
+        // store front/downloads archive description
+        $wp_customize->add_setting('store_page_description', array(
+            'default' => null,
+            'sanitize_callback' => 'ideabox_sanitize_text',
+        ));
+        $wp_customize->add_control(new ideabox_customize_textarea_control($wp_customize, 'store_page_description', array(
+            'label' => __('Store Description', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'store_page_description',
+            'priority' => 55,
+        )));
+        
+        // store front/archive item count
+        $wp_customize->add_setting('ideabox_store_front_count', array(
+            'default' => 9,
+            'sanitize_callback' => 'ideabox_sanitize_integer',
+        ));
+        $wp_customize->add_control('ideabox_store_front_count', array(
+            'label' => __('Store Item Count', 'ideabox'),
+            'section' => 'ideabox_edd_options',
+            'settings' => 'ideabox_store_front_count',
+            'priority' => 60,
+        ));
+    }
+    
+          
      // Add new section for Social Icons
     $wp_customize->add_section('social_icon_setting', array(
         'title' => __('Social Icons', 'ideabox'),
@@ -931,118 +762,3 @@ function ideabox_footer_tracking_code() {
 }
 
 add_action('wp_footer', 'ideabox_footer_tracking_code');
-
-/**
- * Change theme colors based on theme options from customizer.
- *
- * @since Ideabox 1.0
- */
-function ideabox_background_image() {
-    
-    $background_slider = get_theme_mod('slider_background_image');
-    $background_testimonial = get_theme_mod('testimonial_background_image');
-
-    // If we get this far, we have custom styles.
-    ?>
-    <style type="text/css" id="ideabox-background-image-css">
-        
-    <?php if (get_theme_mod('slider_background_image')) { ?>
-            .slider-wrapper{
-                background-image:url('<?php echo $background_slider ?>');
-            }
-    <?php } ?>
-            
-    <?php if (get_theme_mod('testimonial_background_image')) { ?>
-            .testimonial-area{
-                background-image:url('<?php echo $background_testimonial ?>');
-            }
-    <?php } ?>
-    
-    </style>
-
-    <?php
-}
-
-add_action('wp_head', 'ideabox_background_image');
-
-/**
- * Change theme background colors based on theme options from customizer.
- *
- * @since Ideabox 1.0
- */
-function ideabox_background_color() {
-
-    $background_slider = get_theme_mod('ideabox_home_slider_color');
-    $background_portfolio = get_theme_mod('ideabox_portfolio_background_color');
-    $background_blog = get_theme_mod('ideabox_blog_background_color');
-    $background_team = get_theme_mod('ideabox_team_background_color');
-    $background_video = get_theme_mod('ideabox_video_color');
-    $background_gallery = get_theme_mod('ideabox_gallery_color');
-    $background_testimonial = get_theme_mod('ideabox_testimonial_color');
-    $background_cta = get_theme_mod('ideabox_cta_color');
-    $background_contact = get_theme_mod('ideabox_contact_color');
-
-    // If we get this far, we have custom styles.
-    ?>
-
-    <style type="text/css" id="ideabox-background-color-css">
-    <?php if (get_theme_mod('ideabox_home_slider_color')) { ?>
-            .slider-wrapper{
-                background:<?php echo $background_slider ?>;
-            }
-    <?php } ?>
-                    
-    <?php if (get_theme_mod('ideabox_portfolio_background_color')) { ?>
-            .portfolio-area{
-                background:<?php echo $background_portfolio ?>;
-            }
-    <?php } ?>
-                
-    <?php if (get_theme_mod('ideabox_blog_background_color')) { ?>
-            .blog-area{
-                background:<?php echo $background_blog ?>;
-            }
-    <?php } ?>
-                
-    <?php if (get_theme_mod('ideabox_team_background_color')) { ?>
-            .team-member-area{
-                background:<?php echo $background_team ?>;
-            }
-    <?php } ?>
-                
-    <?php if (get_theme_mod('ideabox_video_color')) { ?>
-        .home-video-area{
-            background:<?php echo $background_video ?>;
-        }
-    <?php } ?>
-        
-    <?php if (get_theme_mod('ideabox_gallery_color')) { ?>
-            .gallery-area{
-                background:<?php echo $background_gallery ?>;
-            }
-    <?php } ?>
-            
-    <?php if (get_theme_mod('ideabox_testimonial_color')) { ?>
-            .testimonial-area{
-                background:<?php echo $background_testimonial ?>;
-            }
-    <?php } ?>
-            
-    <?php if (get_theme_mod('ideabox_cta_color')) { ?>
-            .cta-area{
-                background:<?php echo $background_cta ?>;
-            }
-    <?php } ?>
-            
-     <?php if (get_theme_mod('ideabox_contact_color')) { ?>
-            .contact-area{
-                background:<?php echo $background_contact ?>;
-            }
-    <?php } ?>
-            
-    </style>
-
-    <?php
-}
-
-add_action('wp_head', 'ideabox_background_color');
